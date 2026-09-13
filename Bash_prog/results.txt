@@ -1,0 +1,40 @@
+==========================================
+       LOG ANALYSIS SUMMARY REPORT        
+==========================================
+
+1. TOTAL LOG LINES
+------------------
+50
+
+2. COUNT PER LOG LEVEL
+----------------------
+ERROR: 17
+INFO: 22
+WARN: 11
+
+3. TOP 3 MOST FREQUENT IP ADDRESSES
+-----------------------------------
+192.168.1.15 (13 occurrences)
+192.168.1.50 (12 occurrences)
+192.168.1.23 (10 occurrences)
+
+4. ALL ERROR LINES ONLY
+-----------------------
+2026-09-12 10:00:58 ERROR 192.168.1.10 Disk usage above 80%
+2026-09-12 10:01:12 ERROR 192.168.1.15 User login successful
+2026-09-12 10:01:11 ERROR 192.168.1.23 Disk usage above 80%
+2026-09-12 10:02:33 ERROR 192.168.1.50 File uploaded successfully
+2026-09-12 10:03:59 ERROR 192.168.1.50 File uploaded successfully
+2026-09-12 10:05:34 ERROR 192.168.1.15 File uploaded successfully
+2026-09-12 10:06:22 ERROR 192.168.1.50 File uploaded successfully
+2026-09-12 10:07:39 ERROR 192.168.1.50 Database connection failed
+2026-09-12 10:11:31 ERROR 192.168.1.50 File uploaded successfully
+2026-09-12 10:12:55 ERROR 192.168.1.15 File uploaded successfully
+2026-09-12 10:15:28 ERROR 192.168.1.23 Connection timeout
+2026-09-12 10:17:37 ERROR 192.168.1.50 Database connection failed
+2026-09-12 10:18:34 ERROR 192.168.1.88 High memory usage detected
+2026-09-12 10:19:24 ERROR 192.168.1.10 User login successful
+2026-09-12 10:20:03 ERROR 192.168.1.15 High memory usage detected
+2026-09-12 10:21:15 ERROR 192.168.1.23 Connection timeout
+2026-09-12 10:22:18 ERROR 192.168.1.23 Connection timeout
+
