@@ -1,0 +1,35 @@
+{
+  "target": "http://127.0.0.1/vulnerabilities/brute/",
+  "runs": [
+    {
+      "username": "pablo",
+      "wordlist": "/usr/share/wordlists/seclists/Passwords/Common-Credentials/Pwdb_top-1000.txt",
+      "total_requests": 1000,
+      "hit": {"id": "000000101", "status": 200, "lines": 108, "words": 254, "chars": 4413, "payload": "letmein"},
+      "processed": 1000, "filtered": 999
+    },
+    {
+      "username": "smithy",
+      "wordlist": "/usr/share/wordlists/seclists/Passwords/Common-Credentials/Pwdb_top-1000.txt",
+      "total_requests": 1000,
+      "hit": {"id": "000000003", "status": 200, "lines": 108, "words": 254, "chars": 4415, "payload": "password"},
+      "processed": 1000, "filtered": 999
+    },
+    {
+      "username": "gordonb",
+      "wordlist": "/usr/share/wordlists/seclists/Passwords/Common-Credentials/Pwdb_top-1000.txt",
+      "total_requests": 1000,
+      "hit": {"id": "000000012", "status": 200, "lines": 108, "words": 254, "chars": 4417, "payload": "abc123"},
+      "processed": 1000, "filtered": 999
+    },
+    {
+      "username": "1337",
+      "wordlist_attempt_1": "/usr/share/wordlists/seclists/Passwords/Common-Credentials/Pwdb_top-1000.txt",
+      "wordlist_attempt_1_result": "no hit, 0 survivors",
+      "wordlist_attempt_2": "/usr/share/wordlists/seclists/Passwords/Common-Credentials/Pwdb_top-10000.txt",
+      "total_requests": 10000,
+      "hit": {"id": "000005671", "status": 200, "lines": 108, "words": 254, "chars": 4411, "payload": "charley"},
+      "processed": 10000, "filtered": 9999
+    }
+  ]
+}
